@@ -6,9 +6,11 @@
 <title>K-DETAILING</title>
 <link rel="stylesheet" href="style.css">
 
-<!-- Leaflet карта -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- Иконки -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<!-- Яндекс.Карты -->
+<script src="https://api-maps.yandex.ru/2.1/?apikey=Ваш_API_KEY&lang=ru_RU" type="text/javascript"></script>
 
 </head>
 <body>
@@ -17,7 +19,12 @@
     <div class="logo">
         <img src="logo.png" alt="K-DETAILING Logo">
     </div>
-    <nav>
+
+    <div class="menu-btn" id="menu-btn">
+        <i class="fa fa-bars"></i>
+    </div>
+
+    <nav id="nav" class="side-menu">
         <a href="#services">Услуги</a>
         <a href="#portfolio">Наши работы</a>
         <a href="#contacts">Контакты</a>
@@ -27,7 +34,7 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1>K-DETAILING</h1>
+        <h1 class="glow">K-DETAILING</h1>
         <p>Perfection in every detail</p>
     </div>
 </section>
@@ -37,12 +44,12 @@
 <section id="services">
     <h2>Наши услуги</h2>
     <div class="services-list">
-        <div class="service-item">
+        <div class="service-item glow-box">
             <div class="icon">💡</div>
             <h3>Подсветка салона</h3>
-            <p>Уникальная подсветка салона и кузова автомобиля.</p>
+            <p>Уникальная подсветка салона автомобиля с использованием самых качественных деталей.</p>
         </div>
-        <div class="service-item">
+        <div class="service-item glow-box">
             <div class="icon">🔇</div>
             <h3>Шумоизоляция</h3>
             <p>Профессиональная шумоизоляция для максимального комфорта.</p>
@@ -55,12 +62,12 @@
 <section id="portfolio">
     <h2>Наши работы</h2>
     <div class="portfolio-grid">
-        <div class="portfolio-item"><img src="1.png"></div>
-        <div class="portfolio-item"><img src="2.png"></div>
-        <div class="portfolio-item"><img src="3.png"></div>
-        <div class="portfolio-item"><img src="4.png"></div>
-        <div class="portfolio-item"><img src="5.png"></div>
-        <div class="portfolio-item"><img src="6.png"></div>
+        <div class="portfolio-item"><img src="./img/1.png"></div>
+        <div class="portfolio-item"><img src="./img/2.png"></div>
+        <div class="portfolio-item"><img src="./img/3.png"></div>
+        <div class="portfolio-item"><img src="./img/4.png"></div>
+        <div class="portfolio-item"><img src="./img/5.png"></div>
+        <div class="portfolio-item"><img src="./img/6.png"></div>
     </div>
 </section>
 
@@ -69,8 +76,8 @@
 <section id="contacts">
     <h2>Контакты</h2>
     <p>Мастер: Владислав</p>
-    <p>Телефон / WhatsApp: <a href="tel:+79253227148">+7 925 322-71-48</a></p>
-    <p>Telegram: <a href="https://t.me/vladislav_korneev" target="_blank">@vladislav_korneev</a></p>
+    <p>Телефон / WhatsApp: <a class="gold-link" href="tel:+79253227148">+7 925 322-71-48</a></p>
+    <p>Telegram: <a class="gold-link" href="https://t.me/vladislav_korneev" target="_blank">@vladislav_korneev</a></p>
 
     <div id="map"></div>
 </section>
@@ -80,20 +87,39 @@
 <section id="booking">
     <h2>Запись на услугу</h2>
 
-    <form id="booking-form">
-        <input type="text" name="name" placeholder="Ваше имя" required>
-        <input type="tel" name="phone" placeholder="Телефон" required>
-        <select name="service" required>
-            <option value="">Выберите услугу</option>
-            <option value="Подсветка салона">Подсветка салона</option>
-            <option value="Шумоизоляция">Шумоизоляция</option>
-        </select>
-        <input type="datetime-local" name="datetime" required>
-        <button type="submit">Записаться</button>
-    </form>
+   <form id="booking-form">
+    <input type="text" name="name" placeholder="Ваше имя" required pattern="[А-Яа-яЁёA-Za-z\s]+" title="Введите только имя">
+    <input type="tel" name="phone" placeholder="Телефон" required pattern="\+?\d{10,15}" title="Введите корректный номер телефона">
+
+    <div class="services-checkboxes">
+        <label>
+            <input type="checkbox" name="service" value="Подсветка салона">
+            Подсветка салона
+        </label>
+        <label>
+            <input type="checkbox" name="service" value="Шумоизоляция">
+            Шумоизоляция
+        </label>
+    </div>
+
+    <input type="datetime-local" name="datetime" id="datetime" required>
+    <button type="submit">Записаться</button>
+</form>
+
 
     <p id="form-response"></p>
 </section>
+
+
+<!-- Плавающие кнопки -->
+<div class="floating-buttons">
+    <a href="https://wa.me/79253227148" target="_blank" class="float-btn wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://t.me/vladislav_korneev" target="_blank" class="float-btn tg">
+        <i class="fab fa-telegram"></i>
+    </a>
+</div>
 
 <footer>
     <p>&copy; 2025 K-DETAILING. Все права защищены.</p>
@@ -102,5 +128,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-

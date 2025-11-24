@@ -1,33 +1,74 @@
-// Плавная прокрутка по меню
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute("href"));
-        target.scrollIntoView({ behavior: "smooth" });
+// ВЫПАДАЮЩЕЕ МЕНЮ СПРАВА
+const menuBtn = document.getElementById("menu-btn");
+const nav = document.getElementById("nav");
+
+menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("show");
+});
+
+// -------------------- ЯНДЕКС КАРТА --------------------
+ymaps.ready(init);
+
+function init() {
+    const map = new ymaps.Map("map", {
+        center: [55.615167, 37.585207],
+        zoom: 16,
+        controls: ['zoomControl']
     });
-});
 
-// КАРТА Leaflet
-document.addEventListener("DOMContentLoaded", () => {
+    const placemark = new ymaps.Placemark(
+        [55.615167, 37.585207],
+        { balloonContent: "K-DETAILING" },
+        { preset: "islands#yellowIcon" }
+    );
 
-    const map = L.map('map').setView([55.7887, 37.5932], 16);
+    map.geoObjects.add(placemark);
+}
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'K-DETAILING'
-    }).addTo(map);
 
-    L.marker([55.7887, 37.5932])
-        .addTo(map)
-        .bindPopup("K-DETAILING<br>Москва, Днепропетровская 18к1")
-        .openPopup();
-});
+// -------------------------------------------
+// ОТПРАВКА ФОРМЫ В TELEGRAM
+// -------------------------------------------
+const TOKEN = "8355827513:AAHTZBtI3We-ByuZzpd2btN4iE2-w76r1tM";
+const CHAT_ID = "1692646634";
 
-// Форма записи
 const form = document.getElementById('booking-form');
 const response = document.getElementById('form-response');
 
-form.addEventListener('submit', e => {
+// Установка минимальной даты на текущую
+const datetimeInput = document.getElementById('datetime');
+const now = new Date();
+const offset = now.getTimezoneOffset() * 60000;
+const localISOTime = (new Date(now - offset)).toISOString().slice(0,16);
+datetimeInput.min = localISOTime;
+
+// Обработка формы
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const formData = new FormData(form);
+
+    // Получаем выбранные услуги (массив)
+    const selectedServices = Array.from(formData.getAll('service')).join(', ');
+
+    const msg = `
+🔥 *Новая заявка K-DETAILING*  
+👤 Имя: ${formData.get("name")}  
+📞 Телефон: ${formData.get("phone")}  
+💬 Услуги: ${selectedServices}  
+⏰ Дата: ${formData.get("datetime")}
+`;
+
+    await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: msg,
+            parse_mode: "Markdown"
+        })
+    });
+
     response.textContent = "Заявка отправлена! Мы свяжемся с вами.";
     form.reset();
 });
