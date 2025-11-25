@@ -170,8 +170,23 @@ nav a:hover {
 #booking-form button {
     padding: 12px;
     border-radius: 8px;
-    border: none;
+    border: 1px solid gold;
+    background: #1a1a1a;
+    color: gold;
 }
+
+/* украшаем datetime-local */
+#datetime {
+    background: #1a1a1a;
+    color: gold;
+    font-size: 16px;
+}
+
+#datetime::placeholder {
+    color: gold;
+    opacity: 0.7;
+}
+
 
 #booking-form button {
     background: gold;
@@ -256,20 +271,21 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
-/* Боковое меню */
+/* ----- БОКОВОЕ ВЫПАДАЮЩЕЕ МЕНЮ ----- */
 .side-menu {
     position: fixed;
     top: 0;
-    right: -240px; /* спрятано */
-    width: 240px;
+    right: -260px;
+    width: 260px;
     height: 100%;
     background: #111;
     display: flex;
     flex-direction: column;
     padding-top: 90px;
-    gap: 20px;
+    gap: 25px;
     transition: 0.35s ease;
     z-index: 2000;
+    border-left: 1px solid rgba(255,215,0,0.3);
 }
 
 .side-menu.show {
@@ -278,8 +294,43 @@ footer p {
 
 .menu-btn {
     display: block;
-    color: gold;
-    font-size: 28px;
     cursor: pointer;
+    font-size: 32px;
+    color: gold;
     z-index: 2100;
 }
+
+@media (min-width: 769px) {
+
+    header {
+        padding: 10px 15px;
+    }
+
+    .side-menu {
+        position: static;
+        right: auto;
+        height: auto;
+        width: auto;
+        background: none;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 10px;
+
+        /* ключевые свойства для фикса! */
+        flex-wrap: wrap; 
+        max-width: 100%;
+    }
+
+    nav a {
+        font-size: 18px;
+        padding: 10px 30px;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+}
+
