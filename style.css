@@ -334,3 +334,93 @@ footer p {
     }
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.big-logo {
+    height: 70px; /* ЛОГО КРУПНЕЕ */
+}
+
+.header-title {
+    font-size: 38px;
+    font-weight: bold;
+    color: gold;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+
+.hero {
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+    background: url('./img/hero.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+/* Тёмная подложка за текстом */
+.hero-text {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 25px 30px;
+    border-radius: 15px;
+    max-width: 750px;
+    text-align: left;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 1.2s ease;
+}
+
+/* Заголовок HERO */
+.hero-text h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: gold;
+    text-shadow: 0 0 18px gold;
+}
+
+/* Пункты */
+.hero-text p {
+    font-size: 20px;
+    margin: 6px 0;
+    color: #fff;
+    text-shadow: 0 0 8px black;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* На телефонах */
+@media (max-width: 540px) {
+    .hero-text {
+        max-width: 90%;
+        padding: 20px;
+    }
+    .hero-text h2 {
+        font-size: 22px;
+    }
+    .hero-text p {
+        font-size: 16px;
+    }
+}
+
+/* -- Красивые ценники -- */
+.price-tag {
+    font-size: 22px;
+    font-weight: bold;
+    color: gold;
+    margin: 10px 0 15px;
+    text-shadow: 0 0 10px gold, 0 0 18px gold;
+    border: 1px solid gold;
+    padding: 6px 12px;
+    display: inline-block;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.35);
+}
