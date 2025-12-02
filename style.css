@@ -355,7 +355,7 @@ footer p {
 
 
 .hero {
-    height: 120vh;
+    height: 160vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -424,3 +424,4 @@ footer p {
     border-radius: 8px;
     background: rgba(0, 0, 0, 0.35);
 }
+
