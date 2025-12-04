@@ -355,11 +355,11 @@ footer p {
 
 
 .hero {
-    height: 160vh;
+    height: 170vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 70px;
+    padding-top: 80px;
     background: url('./img/hero.jpg') center/cover no-repeat;
     position: relative;
 }
@@ -440,6 +440,7 @@ footer p {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
+
 
 
 
