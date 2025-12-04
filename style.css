@@ -367,7 +367,7 @@ footer p {
 /* Тёмная подложка за текстом */
 .hero-text {
     background: rgba(0, 0, 0, 0.55);
-    padding: 25px 30px;
+    padding: 0px 30px;
     border-radius: 15px;
     max-width: 750px;
     text-align: left;
@@ -440,6 +440,7 @@ footer p {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
+
 
 
 
