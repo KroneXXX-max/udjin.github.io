@@ -50,12 +50,7 @@ nav a:hover {
     font-weight: bold;
 }
 
-/* Mobile menu button */
-.menu-btn {
-    display: none;
-    color: gold;
-    font-size: 28px;
-}
+
 
 
 .glow {
@@ -232,9 +227,7 @@ footer p {
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
-    .menu-btn {
-        display: block;
-    }
+    
 
     nav {
         position: absolute;
@@ -270,21 +263,7 @@ footer p {
         padding: 10px 15px;
     }
 
-    .side-menu {
-        position: static;
-        right: auto;
-        height: auto;
-        width: auto;
-        background: none;
-        flex-direction: row;
-        align-items: center;
-        padding: 0;
-        gap: 10px;
-
-        /* ключевые свойства для фикса! */
-        flex-wrap: wrap; 
-        max-width: 100%;
-    }
+    
 
     nav a {
         font-size: 18px;
@@ -293,9 +272,7 @@ footer p {
         max-width: 100%;
     }
 
-    .menu-btn {
-        display: none;
-    }
+    
 }
 
 .header-left {
