@@ -435,10 +435,11 @@ footer p {
 }
 
 .about-photos img {
-    width: 10%;
+    width: 20%;
     max-width: 200px; /* чтобы не были слишком большими */
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
+
 
 
