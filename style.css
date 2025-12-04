@@ -263,7 +263,8 @@ footer p {
         padding: 10px 15px;
     }
 
-    
+
+    }
 
     nav a {
         font-size: 18px;
@@ -272,8 +273,7 @@ footer p {
         max-width: 100%;
     }
 
-    
-}
+
 
 .header-left {
     display: flex;
