@@ -57,7 +57,15 @@ nav a:hover {
     font-size: 28px;
 }
 
-
+/* HERO */
+.hero {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+    background: url('./img/hero.jpg') center/cover no-repeat;
+}
 
 .glow {
     text-shadow: 0 0 25px gold, 0 0 50px gold;
@@ -230,7 +238,101 @@ footer p {
     color: #aaa;
 }
 
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
 
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #111;
+        width: 200px;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        display: none;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ----- БОКОВОЕ ВЫПАДАЮЩЕЕ МЕНЮ ----- */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100%;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px;
+    gap: 25px;
+    transition: 0.35s ease;
+    z-index: 2000;
+    border-left: 1px solid rgba(255,215,0,0.3);
+}
+
+.side-menu.show {
+    right: 0;
+}
+
+.menu-btn {
+    display: block;
+    cursor: pointer;
+    font-size: 32px;
+    color: gold;
+    z-index: 2100;
+}
+
+@media (min-width: 769px) {
+
+    header {
+        padding: 10px 15px;
+    }
+
+    .side-menu {
+        position: static;
+        right: auto;
+        height: auto;
+        width: auto;
+        background: none;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 10px;
+
+        /* ключевые свойства для фикса! */
+        flex-wrap: wrap; 
+        max-width: 100%;
+    }
+
+    nav a {
+        font-size: 18px;
+        padding: 10px 30px;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+}
 
 .header-left {
     display: flex;
@@ -253,7 +355,7 @@ footer p {
 
 
 .hero {
-    min-height: 100vh; /* корректно для телефонов */
+    height: 170vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -265,7 +367,7 @@ footer p {
 /* Тёмная подложка за текстом */
 .hero-text {
     background: rgba(0, 0, 0, 0.55);
-    padding: 20px 30px;
+    padding: 0px 30px;
     border-radius: 15px;
     max-width: 750px;
     text-align: left;
@@ -329,7 +431,7 @@ footer p {
     gap: 10px;
     margin-bottom: 1px;
     flex-wrap: wrap;
-    margin-top: 150px; /* смещает фотографии ниже */
+    margin-top: 120px; /* смещает фотографии ниже */
 }
 
 .about-photos img {
