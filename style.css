@@ -426,28 +426,14 @@ footer p {
 }
 
 .about-photos {
+    margin-top: 150px; /* безопасный отступ для Android + iOS */
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 1px;
     flex-wrap: wrap;
-    margin-top: 120px; /* смещает фотографии ниже */
 }
 
-.about-photos img {
-    width: 20%;
-    max-width: 200px; /* чтобы не были слишком большими */
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-}
 
-.about-photos {
-    margin-top: 140px; /* Отодвигает фото ниже шапки */
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
-}
 
 .about-photos img {
     width: 30%;
