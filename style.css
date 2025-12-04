@@ -428,16 +428,17 @@ footer p {
 .about-photos {
     display: flex;
     justify-content: center;
-    gap: 80px;
+    gap: 10px;
     margin-bottom: 1px;
     flex-wrap: wrap;
     margin-top: 120px; /* смещает фотографии ниже */
 }
 
 .about-photos img {
-    width: 30%;
+    width: 10%;
     max-width: 200px; /* чтобы не были слишком большими */
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
+
 
